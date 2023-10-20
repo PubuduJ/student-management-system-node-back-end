@@ -5,10 +5,10 @@ const dbConfig = {
     user: process.env.MYSQL_USER,
     password: process.env.MYSQL_PASSWORD,
     database: process.env.MYSQL_DATABASE,
-    dialect: "mysql",
+    dialect: process.env.DIALECT,
     pool: {
-        max: 100,
-        min: 0,
+        max: Number(process.env.MAX),
+        min: Number(process.env.MIN),
     }
 }
 

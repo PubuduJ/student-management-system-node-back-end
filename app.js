@@ -3,6 +3,7 @@ const {db} = require("./models/index")
 const cors = require("cors");
 const students = require("./routes/studentRouter");
 const app = express();
+require("dotenv").config();
 
 // middleware
 app.use(cors());
