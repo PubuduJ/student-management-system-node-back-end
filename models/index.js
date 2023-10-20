@@ -19,7 +19,7 @@ const sequelize = new Sequelize(
 
 const db = {
     sequelize: sequelize,
-    tasks: studentModel(sequelize, DataTypes)
+    students: studentModel(sequelize, DataTypes)
 }
 
 // force: false, Do not re-create database tables again and again when run the server again and again.
