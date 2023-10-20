@@ -4,10 +4,15 @@ const Student = db.students;
 
 const createNewStudent = async (req, res) => {
     try {
-        const createdStudent = await Student.create(req.body);
-        res.status(201).json(createdStudent);
+        const availability = await Student.findByPk(req.body.nic);
+        if (!availability) {
+            const createdStudent = await Student.create(req.body);
+            return res.status(201).json(createdStudent);
+        } else {
+            return res.status(404).json({message: "User already exit in the database"})
+        }
     } catch (error) {
-        res.status(404).json({message: error})
+        return res.status(404).json({message: error.errors[0].message})
     }
 }
 
