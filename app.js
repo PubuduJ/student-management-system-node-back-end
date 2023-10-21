@@ -1,6 +1,7 @@
 const express = require("express");
-const {db} = require("./models/index")
 const cors = require("cors");
+require("dotenv").config();
+const {db} = require("./models/index")
 const students = require("./routes/studentRouter");
 const notFoundMiddleWare = require("./middleware/notFound");
 
