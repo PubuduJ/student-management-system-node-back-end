@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
 require("express-async-errors");
-const {db} = require("./models/index")
+const {db} = require("./models/index");
 const students = require("./routes/studentRouter");
 const notFoundMiddleWare = require("./middleware/notFound");
 const errorHandlerMiddleWare = require("./middleware/globalErrorHandler");

@@ -1,5 +1,5 @@
 const dbConfig = require("../configs/dbConfig");
-const studentModel = require("./studentModel")
+const studentModel = require("./studentModel");
 
 const {Sequelize, DataTypes} = require("sequelize");
 
@@ -21,9 +21,9 @@ const db = {
     students: studentModel(sequelize, DataTypes)
 }
 
-// force: false, Do not re-create database tables again and again when run the server again and again.
+// force: false, Don't keep creating new database tables whenever restart the server.
 sequelize.sync({force: false}).then(() => {
     console.log("re-sync done!")
 })
 
-module.exports = {db}
+module.exports = {db};
