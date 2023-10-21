@@ -2,6 +2,8 @@ const express = require("express");
 const {db} = require("./models/index")
 const cors = require("cors");
 const students = require("./routes/studentRouter");
+const notFoundMiddleWare = require("./middleware/notFound");
+
 const app = express();
 
 // middleware
@@ -10,6 +12,8 @@ app.use(express.json());
 
 // routes
 app.use("/app/api/students", students);
+
+app.use(notFoundMiddleWare);
 
 const port = 8080;
 
