@@ -1,9 +1,11 @@
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
+require("express-async-errors");
 const {db} = require("./models/index")
 const students = require("./routes/studentRouter");
 const notFoundMiddleWare = require("./middleware/notFound");
+const errorHandlerMiddleWare = require("./middleware/globalErrorHandler");
 
 const app = express();
 
@@ -15,6 +17,7 @@ app.use(express.json());
 app.use("/app/api/students", students);
 
 app.use(notFoundMiddleWare);
+app.use(errorHandlerMiddleWare);
 
 const port = 8080;
 
