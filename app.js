@@ -11,7 +11,7 @@ app.use(express.json());
 // routes
 app.use("/app/api/students", students);
 
-const port = 8081;
+const port = 8080;
 
 const startServer = async () => {
     try {
