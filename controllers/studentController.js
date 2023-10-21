@@ -1,5 +1,4 @@
 const {db} = require("../models/index");
-const e = require("express");
 
 const Student = db.students;
 
@@ -13,17 +12,27 @@ const createNewStudent = async (req, res) => {
             return res.status(409).json({message: "User already exit in the database"})
         }
     } catch (error) {
-        return res.status(404).json({message: error.errors[0].message})
+        if (error.errors[0].message) {
+            return res.status(404).json({message: error.errors[0].message})
+        } else {
+            console.log(error);
+            return res.status(500).json({message: error})
+        }
     }
 }
 
 const getStudentDetails = async (req, res) => {
-    const id = req.params.nic;
-    const student = await Student.findByPk(id);
-    if (student) {
-        return res.status(200).json(student);
-    } else {
-        return res.status(404).json({message: "Student doesn't exist"});
+    try {
+        const id = req.params.nic;
+        const student = await Student.findByPk(id);
+        if (student) {
+            return res.status(200).json(student);
+        } else {
+            return res.status(404).json({message: "Student doesn't exist"});
+        }
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({message: error})
     }
 }
 
@@ -38,6 +47,7 @@ const updateStudent = async (req, res) => {
             return res.status(404).json({message: "Student doesn't exist"});
         }
     } catch (error) {
+        console.log(error);
         return res.status(500).json({message: error})
     }
 }
@@ -53,6 +63,7 @@ const deleteStudent = async (req, res) => {
             return res.status(404).json({ message: "Student doesn't exist" });
         }
     } catch (error) {
+        console.log(error);
         return res.status(500).json({message: error});
     }
 }
