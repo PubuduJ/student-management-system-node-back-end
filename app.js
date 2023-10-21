@@ -19,7 +19,7 @@ app.use("/app/api/students", students);
 app.use(notFoundMiddleWare);
 app.use(errorHandlerMiddleWare);
 
-const port = 8080;
+const port = Number(process.env.PORT);
 
 const startServer = async () => {
     try {
