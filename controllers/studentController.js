@@ -47,8 +47,12 @@ const updateStudent = async (req, res) => {
             return res.status(404).json({message: "Student doesn't exist"});
         }
     } catch (error) {
-        console.log(error);
-        return res.status(500).json({message: error})
+        if (error.errors[0].message) {
+            return res.status(404).json({message: error.errors[0].message})
+        } else {
+            console.log(error);
+            return res.status(500).json({message: error})
+        }
     }
 }
 
