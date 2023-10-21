@@ -1,4 +1,4 @@
-# Student Management System - Back End <img src="assets/sms-logo.png" alt="drawing" width="27px"/>
+# Student Management System - Node,js Back End <img src="assets/sms-logo.png" alt="drawing" width="27px"/>
 
 This project includes the **core CRUD** operations of a student 
 management system. **Node.js** was used to create this project, together with **Express.js.** 
