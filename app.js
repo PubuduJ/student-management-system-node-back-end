@@ -4,8 +4,8 @@ require("dotenv").config();
 require("express-async-errors");
 const {db} = require("./models/index");
 const students = require("./routes/studentRouter");
-const notFoundMiddleWare = require("./middleware/notFound");
-const errorHandlerMiddleWare = require("./middleware/globalErrorHandler");
+const notFoundMiddleWare = require("./middlewares/notFound");
+const errorHandlerMiddleWare = require("./middlewares/globalErrorHandler");
 
 const app = express();
 
