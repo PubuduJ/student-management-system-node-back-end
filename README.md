@@ -35,7 +35,7 @@ Make sure to create a **student_db** database in the MySQL server.
 3. Open the terminal from the project directory and run `npm install` and `npm start` to run the server.
 
 ## Version
-v1.0.1
+v1.1.1
 
 ## License
 Copyright &copy; 2023 [Pubudu Janith](https://www.linkedin.com/in/pubudujanith/). All Rights Reserved.<br>
