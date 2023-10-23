@@ -1,4 +1,4 @@
-const {db} = require("../models/index");
+const {db} = require("../models");
 const {StatusCodes} = require("http-status-codes");
 const {ConflictError, BadRequestError} = require("../errors/errors");
 
