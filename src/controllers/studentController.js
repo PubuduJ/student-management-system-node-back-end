@@ -10,7 +10,7 @@ const createNewStudent = async (req, res) => {
     try {
         const availability = await Student.findByPk(req.body.nic);
         if (!availability) {
-            const createdStudent = await Student.create(req.body);
+            const createdStudent = await Student.create(req.body, {transaction: t});
             await t.commit();
             return res.status(StatusCodes.CREATED).json(createdStudent);
         }
@@ -34,7 +34,7 @@ const updateStudent = async (req, res) => {
         const id = req.params.nic;
         const student = await Student.findByPk(id);
         if (student) {
-            await Student.update(req.body, {where: {nic: id}});
+            await Student.update(req.body, {where: {nic: id}, transaction: t});
             await t.commit();
             return res.status(StatusCodes.CREATED).json(req.body);
         }
@@ -51,7 +51,7 @@ const deleteStudent = async (req, res) => {
         const id = req.params.nic;
         const student = await Student.findByPk(id);
         if (student) {
-            await Student.destroy({where: {nic: id}});
+            await Student.destroy({where: {nic: id}, transaction: t});
             await t.commit();
             return res.status(StatusCodes.NO_CONTENT).json({});
         }
