@@ -14,7 +14,7 @@ const createNewStudent = async (req, res) => {
             await t.commit();
             return res.status(StatusCodes.CREATED).json(createdStudent);
         }
-        throw new ConflictError("Student already exit in the database");
+        throw new ConflictError("Student already exist in the database");
     } catch (error) {
         await t.rollback();
         throw error;
